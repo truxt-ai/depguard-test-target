@@ -4,7 +4,7 @@ flask==1.1.1
 django==2.2.0
 pyyaml==5.1
 jinja2==2.10.1
-urllib3==1.24.1
+urllib3==2.6.3
 cryptography==2.6.1
 pillow==6.0.0
 numpy==1.16.0
