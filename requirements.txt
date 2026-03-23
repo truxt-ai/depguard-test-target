@@ -1,7 +1,7 @@
 # Intentionally outdated Python dependencies for DepGuard testing
 requests==2.20.0
 flask==1.1.1
-django==2.2.0
+django==6.0.3
 pyyaml==5.1
 jinja2==2.10.1
 urllib3==1.24.1
