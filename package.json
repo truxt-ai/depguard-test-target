@@ -17,7 +17,7 @@
     "moment": "2.20.0",
     "jsonwebtoken": "8.1.0",
     "node-fetch": "2.1.0",
-    "semver": "5.5.0"
+    "semver": "7.7.4"
   },
   "devDependencies": {
     "jest": "24.0.0",
