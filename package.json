@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "express": "4.15.0",
-    "lodash": "4.16.0",
+    "lodash": "4.17.23",
     "axios": "0.18.0",
     "jsonwebtoken": "8.1.0",
     "moment": "2.20.0",
