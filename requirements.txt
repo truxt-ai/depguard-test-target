@@ -6,8 +6,8 @@ werkzeug==0.14.0
 requests==2.18.0
 urllib3==1.22.0
 certifi==2018.1.18
-celery==4.1.0
-kombu==4.1.0
+celery==5.6.2
+kombu==5.6.2
 django==2.0.0
 cryptography==2.1.0
 pillow==5.0.0
