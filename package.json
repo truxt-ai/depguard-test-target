@@ -13,7 +13,7 @@
     "axios": "0.18.0",
     "jsonwebtoken": "8.1.0",
     "moment": "2.20.0",
-    "minimist": "1.1.0",
+    "minimist": "1.2.8",
     "node-fetch": "2.1.0",
     "qs": "6.4.0",
     "semver": "5.5.0",
