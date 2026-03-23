@@ -14,7 +14,7 @@
     "jsonwebtoken": "8.1.0",
     "moment": "2.20.0",
     "minimist": "1.1.0",
-    "node-fetch": "2.1.0",
+    "node-fetch": "3.3.2",
     "qs": "6.4.0",
     "semver": "5.5.0",
     "debug": "2.6.0"
