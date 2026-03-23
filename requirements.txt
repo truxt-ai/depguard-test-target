@@ -10,5 +10,5 @@ celery==4.1.0
 kombu==4.1.0
 django==2.0.0
 cryptography==2.1.0
-pillow==5.0.0
+pillow==12.1.1
 sqlalchemy==1.2.0
