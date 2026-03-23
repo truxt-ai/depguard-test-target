@@ -1,7 +1,7 @@
 # Intentionally outdated Python dependencies for DepGuard testing
 # Co-dependent pairs: flask+jinja2+werkzeug, requests+urllib3+certifi, celery+kombu
 flask==0.12.0
-jinja2==2.9.0
+jinja2==3.1.6
 werkzeug==0.14.0
 requests==2.18.0
 urllib3==1.22.0
