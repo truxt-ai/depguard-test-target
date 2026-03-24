@@ -16,7 +16,7 @@
 
     "axios": "0.18.0",
 
-    "node-fetch": "2.1.0",
+    "node-fetch": "3.3.2",
 
     "jsonwebtoken": "8.1.0",
 
