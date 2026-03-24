@@ -20,7 +20,7 @@
     "compression": "1.7.0",
     "minimist": "0.0.8",
     "tar": "2.2.1",
-    "tough-cookie": "2.3.0",
+    "tough-cookie": "6.0.1",
     "marked": "0.3.6",
     "path-to-regexp": "0.1.7"
   },
