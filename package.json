@@ -22,7 +22,7 @@
     "tar": "2.2.1",
     "tough-cookie": "2.3.0",
     "marked": "0.3.6",
-    "path-to-regexp": "0.1.7",
+    "path-to-regexp": "8.3.0",
     "ms": "0.7.1",
     "qs": "6.2.0",
     "ws": "6.1.0",
