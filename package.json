@@ -52,7 +52,7 @@
 
     "glob-parent": "3.1.0",
 
-    "trim-newlines": "2.0.0",
+    "trim-newlines": "5.0.0",
 
     "browserslist": "4.7.0",
 
