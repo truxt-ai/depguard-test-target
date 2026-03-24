@@ -24,6 +24,21 @@ require (
 
 	// CVE: golang.org/x/crypto old versions have multiple CVEs
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
+
+	// CVE: containerd old versions have multiple critical CVEs
+	github.com/containerd/containerd v1.4.0
+
+	// CVE: grpc-go old versions vulnerability
+	google.golang.org/grpc v1.38.0
+
+	// CVE: runc old versions have container escape CVEs
+	github.com/opencontainers/runc v1.0.0-rc93
+
+	// Safe: just outdated, no CVE but large version gap
+	github.com/pkg/errors v0.9.0
+
+	// CVE: github.com/prometheus/client_golang old versions
+	github.com/prometheus/client_golang v1.9.0
 )
 
 require (
