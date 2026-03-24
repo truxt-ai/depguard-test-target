@@ -26,7 +26,7 @@
     "ms": "0.7.1",
     "qs": "6.2.0",
     "ws": "6.1.0",
-    "handlebars": "4.0.11",
+    "handlebars": "4.7.8",
     "underscore": "1.6.0"
   },
   "devDependencies": {
