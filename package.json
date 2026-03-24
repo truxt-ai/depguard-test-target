@@ -21,7 +21,7 @@
     "minimist": "0.0.8",
     "tar": "2.2.1",
     "tough-cookie": "2.3.0",
-    "marked": "0.3.6",
+    "marked": "17.0.5",
     "path-to-regexp": "0.1.7",
     "ms": "0.7.1",
     "qs": "6.2.0",
