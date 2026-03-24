@@ -31,4 +31,4 @@ sqlalchemy==1.2.0
 pyyaml==3.12
 
 # XML parsing - CVE exists
-lxml==3.7.0
+lxml==6.0.2
