@@ -1,7 +1,4 @@
-# Intentionally outdated Python dependencies for DepGuard testing
-# Contains known CVEs, outdated versions, and co-dependency chains
-
-# Flask stack - co-dependent chain (flask requires jinja2 + werkzeug)
+# Flask stack — co-dependent chain (tests CONDITIONAL co-upgrade grouping)
 flask==0.12.0
 jinja2==2.9.0
 werkzeug==0.14.0
@@ -11,24 +8,25 @@ requests==2.18.0
 urllib3==1.22.0
 certifi==2018.1.18
 
-# Task queue stack - co-dependent (celery requires kombu)
+# Task queue stack
 celery==4.1.0
 kombu==4.1.0
 
-# Web framework with known CVEs
+# High-profile CVEs — CRITICAL severity
 django==2.0.0
-
-# Crypto with known vulnerabilities
 cryptography==2.1.0
-
-# Image processing
 pillow==5.0.0
-
-# ORM
 sqlalchemy==1.2.0
-
-# Serialization - CVE exists
 pyyaml==3.12
-
-# XML parsing - CVE exists
 lxml==3.7.0
+
+# XML / parsing with known CVEs
+pyotp==2.2.0
+paramiko==2.4.0
+
+# Data science with CVEs
+numpy==1.14.0
+scipy==1.0.0
+
+# Dev dependencies (LOW CVE → auto-dismissed by auto_dismiss_dev_low_severity)
+# These are in requirements-dev.txt conceptually but listed here for scanner coverage

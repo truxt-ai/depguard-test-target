@@ -1,10 +1,10 @@
 version: 1
 
-# FEATURE: update_strategy
-# "aggressive" allows all upgrades: patch + minor + major.
+# ── FEATURE: update_strategy ──────────────────────────────────────────────────
+# aggressive = patch + minor + major all allowed.
 # This lets us see BREAKING draft PRs, CONDITIONAL co-upgrades, and security PRs
-# for packages that only have major-version fixes.
-# Change to "standard" to block major bumps (only patch+minor pass through).
+# for packages that only have a major-version fix available.
+# Switch to "standard" to block major bumps and only see patch/minor PRs.
 update_strategy: aggressive
 
 ecosystems:
@@ -12,48 +12,47 @@ ecosystems:
   - python
   - go
 
-# FEATURE: cooldown_days
-# 0 = propose new versions immediately. Set to 7 to wait a week after release.
+# ── FEATURE: cooldown_days ────────────────────────────────────────────────────
+# 0 = propose versions immediately after release.
+# Set to 7 to wait a week before proposing a freshly released version.
 cooldown_days: 0
 
+# ── FEATURE: ignore ───────────────────────────────────────────────────────────
 ignore:
-  # FEATURE: ignore — complete (no expiry, no version range)
+  # Test A — complete ignore, no expiry, no version range
   # moment will NEVER appear in any PR regardless of CVEs or updates.
   - name: moment
-    reason: "Legacy dependency, migration planned for Q3"
+    reason: "Legacy date library, migration planned for Q3 2026"
 
-  # FEATURE: ignore — with ACTIVE expiry date (future date = rule still active)
-  # nodemon will be skipped until 2026-12-31. After that date it reappears.
+  # Test B — ignore with ACTIVE expiry (future date = rule still active)
+  # nodemon will be skipped until 2026-12-31. After that it reappears.
   - name: nodemon
-    reason: "Dev tool, manual update preferred"
+    reason: "Dev tool, team prefers manual control"
     until: 2026-12-31
 
-  # FEATURE: ignore — with EXPIRED expiry date (past date = rule inactive)
-  # This rule HAS expired. axios WILL be proposed for upgrade.
-  # Expected: axios gets a SAFE PR despite being in the ignore list.
+  # Test C — ignore with EXPIRED expiry (past date = rule no longer active)
+  # This rule HAS expired → axios WILL get a PR despite being in the ignore list.
   - name: axios
-    reason: "Was frozen for v1 migration planning — freeze now lifted"
+    reason: "Was frozen during v1 migration — freeze now lifted"
     until: 2026-01-01
 
-  # FEATURE: ignore — version range only
-  # urllib3 upgrades to >=2.0.0 are blocked (breaking API change in urllib3 2.x).
-  # urllib3 1.22 → 1.26.x (patch within 1.x) would still be proposed if available.
-  # urllib3 1.22 → 2.x is blocked by this rule.
+  # Test D — ignore with version range (blocks only specific target versions)
+  # urllib3 upgrades to >=3.0.0 are blocked. urllib3 2.x is still proposed.
   - name: urllib3
-    versions: ">=2.0.0"
-    reason: "urllib3 2.x has breaking SSL API changes, not ready to migrate"
+    versions: ">=3.0.0"
+    reason: "urllib3 3.x not yet evaluated for breaking SSL API changes"
 
+# ── FEATURE: snooze ───────────────────────────────────────────────────────────
 snooze:
-  # FEATURE: snooze — active (future date = currently snoozed)
-  # babel-jest will not appear in any PR until 2026-06-01.
+  # Test E — active snooze (future date = currently snoozed, skipped)
   babel-jest: 2026-06-01
 
-  # FEATURE: snooze — expired (past date = snooze lifted)
-  # @babel/core snooze has expired. It WILL be proposed for upgrade.
+  # Test F — expired snooze (past date = snooze lifted, WILL be proposed)
   "@babel/core": "2026-01-01"
 
+# ── FEATURE: groups ───────────────────────────────────────────────────────────
 groups:
-  # FEATURE: groups — related packages bundled into ONE PR instead of separate PRs
+  # Test G — related packages bundled into ONE PR instead of separate PRs
   # express + body-parser + compression → single "express-stack" PR
   - name: express-stack
     patterns:
@@ -63,8 +62,10 @@ groups:
     update_types:
       - patch
       - minor
+      - major
 
-  # FEATURE: groups — flask stack with major allowed (overrides strategy for this group)
+  # Test H — flask co-dependency chain → single "flask-stack" PR
+  # Also demonstrates CONDITIONAL: upgrading flask requires jinja2 + werkzeug
   - name: flask-stack
     patterns:
       - "flask"
@@ -75,40 +76,38 @@ groups:
       - minor
       - major
 
+# ── FEATURE: PR configuration ─────────────────────────────────────────────────
 pr:
-  # FEATURE: custom commit message prefix
-  # Commits will read: "chore(deps): bump lodash 4.16.0 → 4.17.21"
+  # Commits read: "chore(deps): bump lodash 4.16.0 → 4.17.23"
   commit_message_prefix: "chore(deps)"
 
   labels:
     - "depguard"
     - "dependencies"
 
-  # FEATURE: draft_breaking
-  # Any PR with BREAKING resolution status opens as a GitHub draft PR.
+  # Test I — BREAKING resolution status → opens as GitHub Draft PR
   draft_breaking: true
 
-  # FEATURE: max_open_prs
-  # DepGuard will open at most 8 PRs. Once 8 are open it stops and waits.
+  # Test J — max_open_prs cap: stops after 8 PRs, queues the rest
   max_open_prs: 8
 
-  # FEATURE: link_to_alert
-  # Security PRs include a direct link to the CVE on NVD / OSV.
+  # Test K — CVE links in security PR body (NVD / OSV links)
   link_to_alert: true
 
-# FEATURE: auto_dismiss_dev_low_severity
-# LOW severity CVEs on devDependencies are silently dropped (no PR, no alert).
-# HIGH/CRITICAL CVEs on devDependencies still get PRs.
+# ── FEATURE: auto_dismiss_dev_low_severity ────────────────────────────────────
+# Test L — LOW severity CVEs on devDependencies are silently dropped.
+# debug@2.6.0 has HIGH → NOT dismissed (HIGH bypasses this rule).
+# mocha@3.0.0 has LOW → dismissed silently.
 auto_dismiss_dev_low_severity: true
 
-# FEATURE: severity_threshold
-# Minimum CVE severity to act on. LOW = report everything including LOW.
+# ── FEATURE: severity_threshold ───────────────────────────────────────────────
+# LOW = report all CVEs including LOW severity ones.
 severity_threshold: LOW
 
-# FEATURE: auto_pause_ignored_prs
-# If 3+ DepGuard PRs are already open and unmerged, stop opening new ones
-# and send a Telegram alert asking the team to review before more arrive.
+# ── FEATURE: auto_pause ───────────────────────────────────────────────────────
+# Test M — if 5+ DepGuard PRs are already open and unmerged, pause and alert.
+# Merge/close a few PRs to re-enable scanning.
 auto_pause_ignored_prs: true
-auto_pause_threshold: 3
+auto_pause_threshold: 5
 
 max_retries: 3
