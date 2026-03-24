@@ -22,7 +22,7 @@
     "tar": "2.2.1",
     "tough-cookie": "2.3.0",
     "marked": "0.3.6",
-    "path-to-regexp": "0.1.7"
+    "path-to-regexp": "8.3.0"
   },
   "devDependencies": {
     "jest": "24.0.0",
