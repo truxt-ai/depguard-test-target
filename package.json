@@ -46,7 +46,7 @@
 
     "underscore": "1.6.0",
 
-    "serialize-javascript": "1.9.1",
+    "serialize-javascript": "7.0.4",
 
     "ansi-regex": "3.0.0",
 
