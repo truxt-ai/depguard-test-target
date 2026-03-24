@@ -1,0 +1,112 @@
+version: 1
+
+# FEATURE: update_strategy
+# "standard" allows patch + minor upgrades only. Major bumps (e.g. express 4→5,
+# flask 0→3, django 2→6) are blocked. Change to "aggressive" to also allow majors.
+update_strategy: standard
+
+ecosystems:
+  - node
+  - python
+  - go
+
+# FEATURE: cooldown_days
+# 0 = propose new versions immediately. Set to 7 to wait a week after release.
+cooldown_days: 0
+
+ignore:
+  # FEATURE: ignore — complete (no expiry, no version range)
+  # moment will NEVER appear in any PR regardless of CVEs or updates.
+  - name: moment
+    reason: "Legacy dependency, migration planned for Q3"
+
+  # FEATURE: ignore — with ACTIVE expiry date (future date = rule still active)
+  # nodemon will be skipped until 2026-12-31. After that date it reappears.
+  - name: nodemon
+    reason: "Dev tool, manual update preferred"
+    until: 2026-12-31
+
+  # FEATURE: ignore — with EXPIRED expiry date (past date = rule inactive)
+  # This rule HAS expired. axios WILL be proposed for upgrade.
+  # Expected: axios gets a SAFE PR despite being in the ignore list.
+  - name: axios
+    reason: "Was frozen for v1 migration planning — freeze now lifted"
+    until: 2026-01-01
+
+  # FEATURE: ignore — version range only
+  # urllib3 upgrades to >=2.0.0 are blocked (breaking API change in urllib3 2.x).
+  # urllib3 1.22 → 1.26.x (patch within 1.x) would still be proposed if available.
+  # urllib3 1.22 → 2.x is blocked by this rule.
+  - name: urllib3
+    versions: ">=2.0.0"
+    reason: "urllib3 2.x has breaking SSL API changes, not ready to migrate"
+
+snooze:
+  # FEATURE: snooze — active (future date = currently snoozed)
+  # babel-jest will not appear in any PR until 2026-06-01.
+  babel-jest: 2026-06-01
+
+  # FEATURE: snooze — expired (past date = snooze lifted)
+  # @babel/core snooze has expired. It WILL be proposed for upgrade.
+  "@babel/core": "2026-01-01"
+
+groups:
+  # FEATURE: groups — related packages bundled into ONE PR instead of separate PRs
+  # express + body-parser + compression → single "express-stack" PR
+  - name: express-stack
+    patterns:
+      - "express"
+      - "body-parser"
+      - "compression"
+    update_types:
+      - patch
+      - minor
+
+  # FEATURE: groups — flask stack with major allowed (overrides strategy for this group)
+  - name: flask-stack
+    patterns:
+      - "flask"
+      - "jinja2"
+      - "werkzeug"
+    update_types:
+      - patch
+      - minor
+      - major
+
+pr:
+  # FEATURE: custom commit message prefix
+  # Commits will read: "chore(deps): bump lodash 4.16.0 → 4.17.21"
+  commit_message_prefix: "chore(deps)"
+
+  labels:
+    - "depguard"
+    - "dependencies"
+
+  # FEATURE: draft_breaking
+  # Any PR with BREAKING resolution status opens as a GitHub draft PR.
+  draft_breaking: true
+
+  # FEATURE: max_open_prs
+  # DepGuard will open at most 8 PRs. Once 8 are open it stops and waits.
+  max_open_prs: 8
+
+  # FEATURE: link_to_alert
+  # Security PRs include a direct link to the CVE on NVD / OSV.
+  link_to_alert: true
+
+# FEATURE: auto_dismiss_dev_low_severity
+# LOW severity CVEs on devDependencies are silently dropped (no PR, no alert).
+# HIGH/CRITICAL CVEs on devDependencies still get PRs.
+auto_dismiss_dev_low_severity: true
+
+# FEATURE: severity_threshold
+# Minimum CVE severity to act on. LOW = report everything including LOW.
+severity_threshold: LOW
+
+# FEATURE: auto_pause_ignored_prs
+# If 3+ DepGuard PRs are already open and unmerged, stop opening new ones
+# and send a Telegram alert asking the team to review before more arrive.
+auto_pause_ignored_prs: true
+auto_pause_threshold: 3
+
+max_retries: 3
