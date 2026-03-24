@@ -88,8 +88,8 @@ pr:
   # Test I — BREAKING resolution status → opens as GitHub Draft PR
   draft_breaking: true
 
-  # Test J — max_open_prs cap: stops after 8 PRs, queues the rest
-  max_open_prs: 8
+  # Test J — max_open_prs cap: high enough to open everything at once
+  max_open_prs: 50
 
   # Test K — CVE links in security PR body (NVD / OSV links)
   link_to_alert: true
@@ -108,6 +108,6 @@ severity_threshold: LOW
 # Test M — if 5+ DepGuard PRs are already open and unmerged, pause and alert.
 # Merge/close a few PRs to re-enable scanning.
 auto_pause_ignored_prs: true
-auto_pause_threshold: 5
+auto_pause_threshold: 50
 
 max_retries: 3
