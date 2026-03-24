@@ -1,9 +1,11 @@
 version: 1
 
 # FEATURE: update_strategy
-# "standard" allows patch + minor upgrades only. Major bumps (e.g. express 4→5,
-# flask 0→3, django 2→6) are blocked. Change to "aggressive" to also allow majors.
-update_strategy: standard
+# "aggressive" allows all upgrades: patch + minor + major.
+# This lets us see BREAKING draft PRs, CONDITIONAL co-upgrades, and security PRs
+# for packages that only have major-version fixes.
+# Change to "standard" to block major bumps (only patch+minor pass through).
+update_strategy: aggressive
 
 ecosystems:
   - node
