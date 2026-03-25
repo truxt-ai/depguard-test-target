@@ -49,7 +49,7 @@ require (
 	// outdated — newer v0.15.x → v0.16.x available
 	github.com/muesli/termenv v0.15.0 // indirect
 	// outdated — newer v1.x available
-	github.com/ncruces/go-strftime v0.1.9 // indirect
+	github.com/ncruces/go-strftime vv1.0.0 // indirect
 	// outdated — v2.1.0 → v2.2.0 available (safe upgrade)
 	github.com/nwaples/rardecode/v2 v2.1.0 // indirect
 	// outdated — v2.2.2 → v2.2.3 available
