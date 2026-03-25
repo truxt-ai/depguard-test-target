@@ -42,7 +42,7 @@ require (
 )
 
 require (
-	github.com/gin-contrib/sse v0.1.0 // indirect
+	github.com/gin-contrib/sse vv1.1.0 // indirect
 	github.com/go-playground/validator/v10 v10.4.1 // indirect
 	// outdated — newer v0.2.x available
 	github.com/muesli/cancelreader v0.2.0 // indirect
