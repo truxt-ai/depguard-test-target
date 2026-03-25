@@ -6,7 +6,7 @@
     "express": "4.15.0",
     "lodash": "4.16.0",
     "axios": "0.18.0",
-    "minimist": "0.0.8"
+    "minimist": "1.2.8"
   },
   "devDependencies": {
     "eslint": "5.0.0",
