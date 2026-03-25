@@ -42,7 +42,7 @@ paramiko==2.4.0
 dulwich==0.20.6
 pyarrow==0.17.0
 grpcio==1.35.0
-protobuf==3.15.0
+protobuf==7.34.1
 setuptools==44.0.0
 pip==20.3.0
 
