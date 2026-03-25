@@ -45,9 +45,9 @@ require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/validator/v10 v10.4.1 // indirect
 	// outdated — newer v0.2.x available
-	github.com/muesli/cancelreader vv0.2.2 // indirect
+	github.com/muesli/cancelreader v0.2.0 // indirect
 	// outdated — newer v0.15.x → v0.16.x available
-	github.com/muesli/termenv v0.15.0 // indirect
+	github.com/muesli/termenv vv0.16.0 // indirect
 	// outdated — newer v1.x available
 	github.com/ncruces/go-strftime v0.1.9 // indirect
 	// outdated — v2.1.0 → v2.2.0 available (safe upgrade)
