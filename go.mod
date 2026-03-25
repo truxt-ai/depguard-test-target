@@ -43,7 +43,14 @@ require (
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
+	// outdated — v10.4.1 → v10.22+ available
 	github.com/go-playground/validator/v10 v10.4.1 // indirect
+	// outdated — v1.1.2 → v1.6+ available
+	github.com/google/uuid v1.1.2 // indirect
+	// outdated — v1.3.0 → v1.6+ available
+	github.com/hashicorp/go-retryablehttp v0.5.1 // indirect
+	// outdated — v1.13.0 → v1.17+ available
+	github.com/klauspost/compress v1.13.0 // indirect
 	// outdated — newer v0.2.x available
 	github.com/muesli/cancelreader v0.2.0 // indirect
 	// outdated — newer v0.15.x → v0.16.x available
@@ -58,6 +65,8 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.18 // indirect
 	// outdated — newer patch available
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
+	// outdated — v1.0.0 → v1.1+ available
+	github.com/spf13/cast v1.3.1 // indirect
 	// outdated — newer available
 	github.com/subosito/gotenv v1.4.2 // indirect
 	// outdated — v1.7.x → v1.9.0 available
@@ -68,4 +77,8 @@ require (
 	// outdated — v1.8.x → v1.9.0 available
 	github.com/wasilibs/go-re2 v1.8.0 // indirect
 	github.com/wasilibs/wazero-helpers v0.0.0-20240620070341-3dff1577cd52 // indirect
+	// outdated — v0.21.x → v0.27+ available
+	golang.org/x/sys v0.0.0-20210510120138-977fb7262007 // indirect
+	// outdated — v0.5.0 → v0.17+ available
+	golang.org/x/text v0.3.7 // indirect
 )
