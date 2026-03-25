@@ -21,7 +21,7 @@ pyyaml==3.12
 lxml==3.7.0
 
 # XML / parsing with known CVEs
-pyotp==2.2.0
+pyotp==2.9.0
 paramiko==2.4.0
 
 # Data science with CVEs
