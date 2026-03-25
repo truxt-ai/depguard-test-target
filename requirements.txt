@@ -34,7 +34,7 @@ httpx==0.13.0
 fastapi==0.63.0
 pydantic==1.6.0
 starlette==0.13.0
-uvicorn==0.11.0
+uvicorn==0.42.0
 gunicorn==20.0.0
 boto3==1.16.0
 botocore==1.19.0
