@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	// CVE: multiple high-severity vulnerabilities in gin < 1.9.0
-	github.com/gin-gonic/gin v1.7.0
+	github.com/gin-gonic/gin vv1.12.0
 
 	// CVE: golang.org/x/net has multiple CVEs in old versions (HTTP/2, HTML parser)
 	golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4
