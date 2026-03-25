@@ -26,7 +26,7 @@ paramiko==2.4.0
 
 # Data science with CVEs
 numpy==1.14.0
-scipy==1.0.0
+scipy==1.17.1
 
 # Additional CVE-laden packages
 aiohttp==3.6.0
