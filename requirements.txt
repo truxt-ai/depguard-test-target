@@ -15,7 +15,7 @@ kombu==4.1.0
 # High-profile CVEs — CRITICAL severity
 django==2.0.0
 cryptography==2.1.0
-pillow==5.0.0
+pillow==12.1.1
 sqlalchemy==1.2.0
 pyyaml==3.12
 lxml==3.7.0
