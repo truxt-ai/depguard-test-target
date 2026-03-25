@@ -44,4 +44,28 @@ require (
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/validator/v10 v10.4.1 // indirect
+	// outdated — newer v0.2.x available
+	github.com/muesli/cancelreader v0.2.0 // indirect
+	// outdated — newer v0.15.x → v0.16.x available
+	github.com/muesli/termenv v0.15.0 // indirect
+	// outdated — newer v1.x available
+	github.com/ncruces/go-strftime v0.1.9 // indirect
+	// outdated — v2.1.0 → v2.2.0 available (safe upgrade)
+	github.com/nwaples/rardecode/v2 v2.1.0 // indirect
+	// outdated — v2.2.2 → v2.2.3 available
+	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
+	// outdated — newer patch available
+	github.com/pierrec/lz4/v4 v4.1.18 // indirect
+	// outdated — newer patch available
+	github.com/pjbgf/sha1cd v0.3.0 // indirect
+	// outdated — newer available
+	github.com/subosito/gotenv v1.4.2 // indirect
+	// outdated — v1.7.x → v1.9.0 available
+	github.com/tetratelabs/wazero v1.7.0 // indirect
+	github.com/therootcompany/xz v1.0.1 // indirect
+	// CVE-2024-46471: ulikunitz/xz < 0.5.12 has arbitrary code execution via malformed xz stream
+	github.com/ulikunitz/xz v0.5.10 // indirect
+	// outdated — v1.8.x → v1.9.0 available
+	github.com/wasilibs/go-re2 v1.8.0 // indirect
+	github.com/wasilibs/wazero-helpers v0.0.0-20240620070341-3dff1577cd52 // indirect
 )
