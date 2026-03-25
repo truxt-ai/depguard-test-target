@@ -25,7 +25,7 @@ pyotp==2.2.0
 paramiko==2.4.0
 
 # Data science with CVEs
-numpy==1.14.0
+numpy==2.4.3
 scipy==1.0.0
 
 # Additional CVE-laden packages
