@@ -1,6 +1,6 @@
 # Flask stack — co-dependent chain (tests CONDITIONAL co-upgrade grouping)
 flask==0.12.0
-jinja2==2.9.0
+jinja2==3.1.6
 werkzeug==0.14.0
 
 # HTTP stack
