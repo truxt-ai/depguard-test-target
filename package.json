@@ -4,7 +4,7 @@
   "main": "index.js",
   "dependencies": {
     "lodash": "4.16.0",
-    "minimist": "0.0.8",
+    "minimist": "1.2.8",
     "chalk": "4.1.0",
     "debug": "4.3.0",
     "ms": "2.1.2"
