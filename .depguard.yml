@@ -48,28 +48,25 @@ snooze:
 # ── FEATURE: groups ───────────────────────────────────────────────────────────
 groups:
   # Test G — related packages bundled into ONE PR instead of separate PRs
-  # express + body-parser + compression → single "express-stack" PR
-  - name: express-stack
+  # chalk + debug + ms → single "logging-utils" PR
+  - name: logging-utils
     patterns:
-      - "express"
-      - "body-parser"
-      - "compression"
+      - "chalk"
+      - "debug"
+      - "ms"
     update_types:
       - patch
       - minor
-      - major
 
-  # Test H — flask co-dependency chain → single "flask-stack" PR
-  # Also demonstrates CONDITIONAL: upgrading flask requires jinja2 + werkzeug
-  - name: flask-stack
+  # Test H — python utility chain → single "python-utils" PR
+  - name: python-utils
     patterns:
-      - "flask"
-      - "jinja2"
-      - "werkzeug"
+      - "click"
+      - "colorama"
+      - "typing-extensions"
     update_types:
       - patch
       - minor
-      - major
 
 # ── FEATURE: PR configuration ─────────────────────────────────────────────────
 pr:
