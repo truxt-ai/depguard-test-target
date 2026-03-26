@@ -10,7 +10,7 @@
     "ms": "2.1.2"
   },
   "devDependencies": {
-    "eslint": "5.0.0",
+    "eslint": "10.1.0",
     "mocha": "3.0.0"
   }
 }
