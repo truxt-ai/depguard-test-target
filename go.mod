@@ -3,7 +3,7 @@ module github.com/test/depguard-target
 go 1.19
 
 require (
-	github.com/gin-gonic/gin v1.9.0
+	github.com/gin-gonic/gin vv1.12.0
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 )
 
