@@ -32,14 +32,7 @@ ignore:
     reason: "Dev tool, team prefers manual control"
     until: 2026-12-31
 
-  # Test C — ignore with EXPIRED expiry (past date = rule no longer active)
-  # This rule HAS expired → axios WILL get a PR despite being in the ignore list.
-  - name: axios
-    reason: "Was frozen during v1 migration — freeze now lifted"
-    until: 2026-01-01
-
-  # Test D — ignore with version range (blocks only specific target versions)
-  # urllib3 upgrades to >=3.0.0 are blocked. urllib3 2.x is still proposed.
+  # Test C — ignore with version range (blocks only specific target versions)
   - name: urllib3
     versions: ">=3.0.0"
     reason: "urllib3 3.x not yet evaluated for breaking SSL API changes"
