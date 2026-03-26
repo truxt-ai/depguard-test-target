@@ -11,6 +11,6 @@ require (
 
 require (
 	github.com/pelletier/go-toml/v2 v2.0.0 // indirect
-	github.com/nwaples/rardecode/v2 v2.0.0-20190808090927-5765eb5ca671 // indirect
+	github.com/nwaples/rardecode/v2 vv2.2.2 // indirect
 	golang.org/x/net v0.0.0-20210226172049-e18ecbb05110 // indirect
 )
