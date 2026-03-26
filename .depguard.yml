@@ -11,6 +11,8 @@ ecosystems:
   - node
   - python
   - go
+  - docker
+  - actions
 
 # ── FEATURE: cooldown_days ────────────────────────────────────────────────────
 # 0 = propose versions immediately after release.
