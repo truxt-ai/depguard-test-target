@@ -9,5 +9,5 @@ require (
 
 require (
 	github.com/pelletier/go-toml/v2 v2.0.0 // indirect
-	golang.org/x/net v0.21.0 // indirect
+	golang.org/x/net vv0.52.0 // indirect
 )
